@@ -1,0 +1,173 @@
+<div class="">
+  <!--begin::Form-->
+  <div class="pt-lg-0 pt-5">
+    <h3 (click)="goback()" class="cursor-pointer main-font-blue font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
+      RESIDENTIAL
+    </h3>
+  </div>
+  <div class="form" [formGroup]="formGroup">
+    <!--begin::Body-->
+    <div class="card-body">
+      <div class="tab-content pt-3">
+        <!-- begin::Header -->
+        <div>
+          <h5 class="main-font-blue font-weight-bolder text-dark font-size-h5 font-size-h2-lg">
+            CLIENT
+          </h5>
+        </div>
+        <div class="tab-pane" [ngClass]="getActiveTabCSSClass(1)">
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Name & Surname:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Name & Surname"
+                autocomplete="off"
+                formControlName="name"
+                [class.is-invalid]="isControlInvalid('name')"
+                [class.is-valid]="isControlValid('name')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('name')">Current name was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'name')">Name is required</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Address:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control mb-2"
+                placeholder="Address"
+                autocomplete="off"
+                formControlName="address1"
+                [class.is-invalid]="isControlInvalid('address1')"
+                [class.is-valid]="isControlValid('address1')" 
+              />
+              <input type="text"
+                class="form-control"
+                autocomplete="off"
+                formControlName="address2"
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('address1')">Current address was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'address1')">Address is required</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Postcode:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Postcode"
+                autocomplete="off"
+                formControlName="postcode"
+                [class.is-invalid]="isControlInvalid('postcode')"
+                [class.is-valid]="isControlValid('postcode')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('postcode')">Current postcode was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'postcode')">Postcode is required</div>
+            </div>
+          </div>
+          
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >I.D./Passport No.:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Passport"
+                autocomplete="off"
+                formControlName="passport"
+                [class.is-invalid]="isControlInvalid('passport')"
+                [class.is-valid]="isControlValid('passport')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('passport')">Current passport was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'passport')">Passport is required</div>
+              <div class="main-font-blue form-text text-muted">
+                Please attach a copy; state passport no. only if not in possession of Maltese I.D. Card
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Contact Number/s:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Contact Number/s"
+                autocomplete="off"
+                formControlName="contactNumber"
+                [class.is-invalid]="isControlInvalid('contactNumber')"
+                [class.is-valid]="isControlValid('contactNumber')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('contactNumber')">Current contact number was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'contactNumber')">Contact Number is required</div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Email:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Email"
+                autocomplete="off"
+                formControlName="email"
+                [class.is-invalid]="isControlInvalid('email')"
+                [class.is-valid]="isControlValid('email')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('email')">Current email was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'email')">Email is required</div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Upload Identity Card:</label
+            >
+            <input type="file" #file placeholder="Choose file" (change)="changedAvatarFile(file.files)" style="display:none;">
+            <button type="button" class="col-lg-2 col-xl-2  btn btn-secondary attach-height" (click)="file.click()">ATTACH FILE</button>
+            <div class="col-lg-7 col-xl-7">
+              <input type="text"
+                class="form-control"
+                placeholder="Name of uploaded file after client has attched it"
+                autocomplete="off"
+                [(ngModel)] = "model.originalFileName"
+                formControlName="attachFile"
+                [class.is-invalid]="isControlInvalid('attachFile')"
+                [class.is-valid]="isControlValid('attachFile')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('attachFile')">Current Attach file was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'attachFile')">Attach file is required</div>
+            </div>
+          </div>
+        </div>
+        <!-- end::Header -->
+      </div>
+    </div>
+    <!--end::Body-->
+    <!--begin::Footer-->
+    <div class="d-flex justify-content-center">
+      <div>
+        <button
+          (click)="next()"
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+        >
+          NEXT
+        </button>
+        &nbsp;
+      </div>
+    </div>
+    <!--end::Footer-->
+  </div>
+  <!--end::Form-->
+</div>

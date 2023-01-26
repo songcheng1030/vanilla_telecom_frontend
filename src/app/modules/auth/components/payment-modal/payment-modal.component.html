@@ -1,0 +1,121 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title main-font-blue">PAYMENT</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <h4 class="modal-title main-font-blue">CREDIT/DEBIT CARD</h4>
+    <div class="row mt-3">
+      <label class="col-lg-3 col-form-label text-lg-right"
+        >CARD NUMBER</label
+      >
+      <div class="col-lg-9 col-xl-9">
+        <input type="text"
+          maxlength="18" 
+          [(ngModel)]="cardNumber"
+          class="form-control"
+          placeholder="CARD NUMBER"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <label class="col-lg-3 col-form-label text-lg-right"
+        >EXPIRY DATE</label
+      >
+      <div class="col-lg-4 col-xl-4">
+        <select class="form-control" [(ngModel)]="expMonth">
+          <option value="">Select Month</option>
+          <option value="1">01</option>
+          <option value="2">02</option>
+          <option value="3">03</option>
+          <option value="4">04</option>
+          <option value="5">05</option>
+          <option value="6">06</option>
+          <option value="7">07</option>
+          <option value="8">08</option>
+          <option value="9">09</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+        </select>
+      </div>
+      <div class="col-lg-4 col-xl-4">
+        <select class="form-control"  [(ngModel)]="expYear">
+          <option value="">Select Year</option>
+          <option value="20">2020</option>
+          <option value="21">2021</option>
+          <option value="22">2022</option>
+          <option value="23">2023</option>
+          <option value="24">2024</option>
+          <option value="25">2025</option>
+          <option value="26">2026</option>
+          <option value="27">2027</option>
+          <option value="28">2028</option>
+          <option value="29">2029</option>
+          <option value="30">2030</option>
+        </select>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <label class="col-lg-3 col-form-label text-lg-right"
+        >CARD NAME</label
+      >
+      <div class="col-lg-9 col-xl-9">
+        <input type="text"
+          [(ngModel)]="cardName"
+          class="form-control"
+          placeholder="CARD NUMBER"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+    <div class="row mt-3">
+      <label class="col-lg-3 col-form-label text-lg-right">CVV</label
+      >
+      <div class="col-lg-9 col-xl-9">
+        <input type="text"
+          maxlength="4" 
+          [(ngModel)]="cvv"
+          class="form-control"
+          placeholder="CVV"
+          autocomplete="off"
+        />
+      </div>
+    </div>
+    <label class="checkbox main-font-blue  mt-3">
+      <input type="checkbox" [(ngModel)]="checked"/>
+      <span class="mr-2"></span>SAVE CARD DETAILS FOR NEXT TIME</label>
+    <div class="text-center errorMessage mt-3">{{errorMessage}}</div>
+    <div>{{message}}</div>
+  </div> 
+  <div class="modal-footer">
+    <div class="d-flex justify-content-center">
+      <div>
+        <button
+          (click)="back()"
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+        >
+          BACK
+        </button>
+        &nbsp;
+      </div>
+      <div>
+        <button
+          (click)="pay()"
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+        >
+          MAKE PAYMENT
+        </button>
+        &nbsp;
+      </div>
+    </div>
+  </div>
+</div>

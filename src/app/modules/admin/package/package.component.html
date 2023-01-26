@@ -1,0 +1,72 @@
+<div class="container card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 (click)="goback()" class="main-font-blue font-weight-bolder text-dark font-size-h4 font-size-h1-lg cursor-pointer">PACKAGE</h3>   
+    </div>
+    <!-- <div class="card-toolbar">
+      <a
+        type="button"
+        class="btn btn-primary"
+        routerLink="/ecommerce/product/add"
+        >New Product</a   
+      >
+    </div> -->
+  </div>
+  <div class="card-body">
+    <!-- begin: Grouping -->
+    
+    <!-- end: Grouping -->
+    <!-- begin:Table -->
+    <div class="">
+      <div class="row">
+        <div *ngFor="let group of allChannels" class="col-md-6 col-xxl-4">
+          <div class="main-font-blue font-size-h3 font-size-h2-lg font-weight-bold mb-2">
+            {{ group?.groupName }}
+          </div>
+          <div *ngFor="let package of group.packages">
+            <div class="main-back-blue font-size-h3 font-size-h2-lg font-weight-bold text-white text-center p-3">
+              {{ package?.packageName }}
+            </div>
+            <div *ngFor="let channel of package?.channels; let key = index">
+              <div class="d-flex justify-content-between align-items-center main-font-blue p-3" [ngClass]="getOddBackColor(key)">
+                <div><img src="./assets/media/icon/close.png" class="cursor-pointer"/></div>
+                <div class="font-size-h4 font-size-h3-lg">{{ channel?.channel }}</div> 
+                <div class="font-size-h4 font-size-h3-lg">€{{ channel?.price }}</div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center main-font-blue p-3 text-center mb-13 cursor-pointer">
+              <div><img src="./assets/media/icon/add.png"/></div>
+              <div class="font-size-h4 font-size-h3-lg w-100 font-italic">ADD NEW CHANNEL</div> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div>
+        <button
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+        >
+          SAVE
+        </button>
+        &nbsp;
+      </div>
+      <div>
+        <button
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5"
+        >
+          ADD NEW PACKAGE 
+        </button>
+        &nbsp;
+      </div>
+      <div>
+        <button
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+        >
+          EDIT
+        </button>
+        &nbsp;
+      </div>
+    </div>
+  </div>
+</div>

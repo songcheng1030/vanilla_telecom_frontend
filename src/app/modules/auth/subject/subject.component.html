@@ -1,0 +1,34 @@
+<!--begin::Signin-->
+<div class="mx-auto">
+    <!--begin::Title-->
+    <div class="pt-13 pb-13 d-flex justify-content-center"> 
+      <div class="pt-lg-0 pt-5">
+        <img src="./assets/media/logos/VanillaTelecomsLogo.png">
+      </div>
+    </div>
+    <!--end::Title-->
+
+    <!--begin::Action-->
+    <div class="pb-lg-0 pb-5 mt-5 d-flex justify-content-center">  
+      <button
+        (click)="residential()"
+        class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+      >
+        RESIDENTIAL
+      </button>
+
+      <button
+        (click)="business()"
+        class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+      >
+        BUSINESS
+      </button>
+
+      <ng-container *ngIf="isLoading$ | async">
+        <span class="spinner spinner-primary ml-5"></span>
+      </ng-container>
+    </div>
+    <!--end::Action-->
+</div>
+<!--end::Signin-->
+

@@ -1,0 +1,56 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title main-font-blue">REQUEST CREDIT</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="d-flex align-items-baseline"> 
+      <label class="mr-4"
+        >30 DAYS CREDIT WITH A</label
+      >
+      <div class="">
+        <input
+          type="number"
+          class="form-control"
+          name="amount"
+          [(ngModel)]="amount"
+          placeholder="€"
+          value="amount"
+        />
+        <span></span>
+        
+        <div class="main-font-blue form-text text-muted">
+          Subject to approval
+        </div>
+      </div>
+      <div class="ml-2">CREDIT LIMIT</div>
+    </div>
+  </div>
+  <div class="modal-footer d-flex justify-content-center">
+    <div>
+      <button
+        (click)="modal.dismiss()"
+        class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+      >
+        BACK
+      </button>
+      &nbsp;
+    </div>
+    <div>
+      <button
+        (click)="makePayment()"
+        class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+      >
+        Next
+      </button>
+      &nbsp;
+    </div>
+  </div>
+</div>

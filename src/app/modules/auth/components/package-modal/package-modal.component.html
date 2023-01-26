@@ -1,0 +1,51 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title main-font-blue">PLEASE CHOOSE YOUR PACKAGE:</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="mb-3">
+      <input
+        type="text"
+        class="form-control"
+        name="searchText"
+        placeholder="Search for your preferred DIDs"
+        value=""
+      />
+    </div>
+    <div class="package-container">
+      <div *ngFor="let package of packages; let index = index">
+        <div class="font-size-h5 main-font-blue cursor-pointer" [ngClass]="{'selectPackage' : selectPackage?.id === package.id}" (click)="onClickPackage(package)">{{package.channel}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <div class="d-flex justify-content-center">
+      <div>
+        <button
+          (click)="back()"
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+        >
+          BACK
+        </button>
+        &nbsp;
+      </div>
+      <div>
+        <button
+          (click)="next()"
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+        >
+          NEXT
+        </button>
+        &nbsp;
+      </div>
+    </div>
+  </div>
+</div>

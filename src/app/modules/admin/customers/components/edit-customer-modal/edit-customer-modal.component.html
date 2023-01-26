@@ -1,0 +1,80 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <div class="modal-title h4" id="example-modal-sizes-title-lg">
+      <ng-container *ngIf="customer">
+        <ng-container *ngIf="customer.id">Edit</ng-container>
+        <ng-container *ngIf="!customer.id">Create</ng-container>
+          User
+        <!-- <ng-container *ngIf="customer.id">'{{customer.name}}'</ng-container> -->
+      </ng-container>
+    </div>
+  </div>
+  <div class="overlay overlay-block cursor-default modal-body" style="min-height: 404px;">
+    <ng-container *ngIf="isLoading$ | async">
+      <div class="overlay-layer bg-transparent">
+        <div class="spinner spinner-lg spinner-success"></div>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="customer">
+      <form action="#" class="form form-label-right" [formGroup]="formGroup">
+        <div class="form-group row">
+          <div class="col-lg-4">
+            <label class="form-label">Enter Name</label>
+            <input type="text" class="form-control form-control-lg form-control-solid" name="name"
+              placeholder="First Name" autocomplete="off" [class.is-invalid]="isControlInvalid('name')"
+              [class.is-valid]="isControlValid('name')" formControlName="name" />
+            <div class="valid-feedback" *ngIf="isControlValid('name')">First name was entered correct</div>
+            <div class="invalid-feedback" *ngIf="controlHasError('required', 'name')">First name is required</div>
+            <div class="invalid-feedback" *ngIf="controlHasError('minlength', 'name')">First name should have at
+              least 3 symbols</div>
+            <div class="invalid-feedback" *ngIf="controlHasError('maxLength', 'name')">First name should have
+              maximum 100 symbols</div>
+          </div>
+          <div class="col-lg-4">
+            <label class="form-label">Enter Login</label>
+            <input type="text" class="form-control form-control-lg form-control-solid" name="userName"
+              placeholder="Login" autocomplete="off" [class.is-invalid]="isControlInvalid('userName')"
+              [class.is-valid]="isControlValid('userName')" formControlName="userName" />
+            <div class="valid-feedback" *ngIf="isControlValid('userName')">Login was entered correct</div>
+            <div class="invalid-feedback" *ngIf="controlHasError('required', 'userName')">Login is required</div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-lg-4">
+            <label class="form-label">Enter Email</label>
+            <input type="email" class="form-control form-control-lg form-control-solid" name="email" placeholder="Email"
+              autocomplete="off" [class.is-invalid]="isControlInvalid('email')"
+              [class.is-valid]="isControlValid('email')" formControlName="email" />
+            <div class="valid-feedback" *ngIf="isControlValid('email')">Email was entered correct</div>
+            <div class="invalid-feedback" *ngIf="controlHasError('required', 'email')">Email is required</div>
+            <div class="invalid-feedback" *ngIf="controlHasError('email', 'email')">Email format is incorrect</div>
+          </div>
+          <div class="col-lg-4">
+            <label>Select Role</label>
+            <select class="form-control form-control-lg form-control-solid" name="role" formControlName="role">
+              <option value="1">Administrator</option>
+              <option value="2">User</option>
+            </select>
+            <div class="feedback">Please select <b>Role</b></div>
+          </div>
+          <div class="col-lg-4">
+            <label>Select Status</label>
+            <select class="form-control form-control-lg form-control-solid" name="type" formControlName="type">
+              <option value="1">Inactive</option>
+            </select>
+            <div class="feedback">Please select <b>Status</b></div>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-light btn-elevate mr-2" (click)="modal.dismiss()">Cancel</button>
+    <ng-container *ngIf="customer">
+
+      <button type="submit" class="btn btn-primary btn-elevate" (click)="save()"
+        [disabled]="formGroup.invalid">Save</button>
+    </ng-container>
+  </div>
+</div>

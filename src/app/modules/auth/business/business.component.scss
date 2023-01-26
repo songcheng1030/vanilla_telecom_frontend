@@ -1,0 +1,15 @@
+:host {
+  .hljs {
+    background: transparent !important;
+  }
+}
+.attach-height{
+  height: 40px;
+}
+::ng-deep .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle{
+	border-color: #4591CE!important;   /*inner circle color change*/
+}
+
+::ng-deep .mat-radio-button.mat-accent .mat-radio-inner-circle{
+  background-color: #4591CE!important;
+}

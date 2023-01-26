@@ -1,0 +1,327 @@
+<div class="">
+  <!--begin::Form-->
+  <div class="pt-lg-0 pt-5">
+    <h3 (click)="goback()" class="cursor-pointer main-font-blue font-weight-bolder text-dark font-size-h4 font-size-h1-lg">
+      BUSINESS
+    </h3>
+  </div>
+  <form class="form"  [formGroup]="formGroup" novalidate #form="ngForm">
+    <!--begin::Body-->
+    <div class="card-body">
+      <div class="tab-content">
+        <div>
+          <h5 class="main-font-blue font-weight-bolder text-dark font-size-h5 font-size-h2-lg">
+            CLIENT
+          </h5>
+        </div>
+        <!--begin::Client Detail-->
+        <div>
+          <!--begin::Company Name-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Company Name:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Company Name"
+                autocomplete="off"
+                formControlName="companyName"
+                [class.is-invalid]="isControlInvalid('companyName')"
+                [class.is-valid]="isControlValid('companyName')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('companyName')">Current name was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'companyName')">Name is required</div>
+              
+              <!-- <div class="form-text text-muted">
+                Enable fixed header for desktop mode
+              </div> -->
+            </div>
+          </div>
+          <!--end:: Company Name-->
+          <!--begin:: Billing Address-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Billing Address:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control mb-2"
+                placeholder="Address"
+                autocomplete="off"
+                formControlName="address1"
+                [class.is-invalid]="isControlInvalid('address1')"
+                [class.is-valid]="isControlValid('address1')" 
+              />
+              <input type="text"
+                class="form-control"
+                autocomplete="off"
+                formControlName="address2"
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('address1')">Current address was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'address1')">Address is required</div>
+            </div>
+          </div>
+          <!--end:: Billing Address-->
+          <!--begin:: Installation Address-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Installation Address:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control mb-2"
+                placeholder="Installation Address"
+                autocomplete="off"
+                formControlName="installationAddress1"
+                [class.is-invalid]="isControlInvalid('installationAddress1')"
+                [class.is-valid]="isControlValid('installationAddress1')" 
+              />
+              <input type="text"
+                class="form-control"
+                autocomplete="off"
+                formControlName="installationAddress2"
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('installationAddress1')">Current installation address was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'installationAddress1')">Installation Address is required</div>
+            </div>
+          </div>
+          <!--end:: Installation Address-->
+          <!--begin:: Postcode-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Postcode:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Postcode"
+                autocomplete="off"
+                formControlName="postcode"
+                [class.is-invalid]="isControlInvalid('postcode')"
+                [class.is-valid]="isControlValid('postcode')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('postcode')">Current postcode was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'postcode')">Postcode is required</div>
+            </div>
+          </div>
+          <!--end:: Postcode-->
+          <!--begin:: I.D./Passport No.-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >I.D./Passport No.:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Passport"
+                autocomplete="off"
+                formControlName="passport"
+                [class.is-invalid]="isControlInvalid('passport')"
+                [class.is-valid]="isControlValid('passport')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('passport')">Current passport was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'passport')">Passport is required</div>
+              <div class="main-font-blue form-text text-muted">
+                Please attach a copy; state passport no. only if not in possession of Maltese I.D. Card
+              </div>
+            </div>
+          </div>
+          <!--end:: I.D./Passport No.-->
+          <!--begin:: Type of Company / Entity-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Type of Company / Entity:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Type of Company / Entity"
+                autocomplete="off"
+                formControlName="companyEntity"
+                [class.is-invalid]="isControlInvalid('companyEntity')"
+                [class.is-valid]="isControlValid('companyEntity')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('companyEntity')">Current Type of Company / Entity was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'companyEntity')">Type of Company / Entity is required</div>
+              
+              <div class="form-text text-muted main-font-blue">
+                Please attach, as applicable, a copy of the most recent Memorandum and Articles of Association and a copy of the Certificate of Registration, or the Partnership Contract, or copy of the Statute and details of Committee members. 
+              </div>
+            </div>
+          </div>
+          <!--end:: Type of Company / Entity-->
+          <!--begin:: C-Reg No. && VAT No.-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >C-Reg No.:</label
+            >
+            <div class="col-lg-9 col-xl-3">
+              <input type="text"
+                class="form-control"
+                placeholder="C-Reg No."
+                autocomplete="off"
+                formControlName="cReg"
+                [class.is-invalid]="isControlInvalid('cReg')"
+                [class.is-valid]="isControlValid('cReg')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('cReg')">Current C-Reg No. was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'cReg')">C-Reg No. is required</div>
+            </div>
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >VAT No.:</label
+            >
+            <div class="col-lg-9 col-xl-3">
+              <input type="text"
+                class="form-control"
+                placeholder="VAT No."
+                autocomplete="off"
+                formControlName="vatNo"
+                [class.is-invalid]="isControlInvalid('vatNo')"
+                [class.is-valid]="isControlValid('vatNo')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('vatNo')">Current Vat No. was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'vatNo')">Vat No. is required</div>
+            </div>
+          </div>
+          <!--end:: C-Reg No. && VAT No.-->
+          <!--begin:: Contact Number/s-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Contact Number/s:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="text"
+                class="form-control"
+                placeholder="Contact Number/s"
+                autocomplete="off"
+                formControlName="contactNumber"
+                [class.is-invalid]="isControlInvalid('contactNumber')"
+                [class.is-valid]="isControlValid('contactNumber')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('contactNumber')">Current contact number was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'contactNumber')">Contact Number is required</div>
+            </div>
+          </div>
+          <!--end:: Contact Number/s-->
+          <!--begin:: Email-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Email:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="email"
+                class="form-control"
+                placeholder="Email"
+                autocomplete="off"
+                formControlName="email"
+                [class.is-invalid]="isControlInvalid('email')"
+                [class.is-valid]="isControlValid('email')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('email')">Current email was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'email')">Email is required</div>
+            </div>
+          </div>
+          <!--end:: Email-->
+          <!--begin:: Invoice Manager Contact Email-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Invoice Manager Contact Email:</label
+            >
+            <div class="col-lg-9 col-xl-9">
+              <input type="email"
+                class="form-control"
+                placeholder="Invoice Manager Contact Email"
+                autocomplete="off"
+                formControlName="invoiceEmail"
+                [class.is-invalid]="isControlInvalid('invoiceEmail')"
+                [class.is-valid]="isControlValid('invoiceEmail')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('invoiceEmail')">Current Invoice Manager Contact Email was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'invoiceEmail')">Invoice Manager Contact Email is required</div>
+            </div>
+          </div>
+          <!--end:: Invoice Manager Contact Email-->
+          <!--begin:: Upload Identity Card-->
+          <div class="form-group row">
+            <label class="col-lg-3 col-form-label text-lg-right"
+              >Upload Your Company Reg. Certificate</label
+            >
+            <input type="file" #file placeholder="Choose file" (change)="changedAvatarFile(file.files)" style="display:none;">
+            <button
+              type="submit"
+              name="builder_reset"
+              class="btn btn-secondary col-lg-2 col-xl-2 attach-height"
+              (click)="file.click()"
+            >  
+              ATTACH FILE
+            </button>
+            <div class="col-lg-7 col-xl-7">
+              <input type="text"
+                class="form-control"
+                placeholder="Name of uploaded file after client has attched it"
+                autocomplete="off"
+                [(ngModel)] = "model.originalFileName"
+                formControlName="attachFile"
+                [class.is-invalid]="isControlInvalid('attachFile')"
+                [class.is-valid]="isControlValid('attachFile')" 
+              />
+              <div class="valid-feedback" *ngIf="isControlValid('attachFile')">Current Attach file was entered correct</div>
+              <div class="invalid-feedback" *ngIf="controlHasError('required', 'attachFile')">Attach file is required</div>
+            </div>
+          </div>
+          <!--end:: Upload Identity Card-->
+        </div>
+        <!-- end::Client Detail -->
+        <div class="card-body">
+          <div>
+            <h5 class="main-font-blue font-weight-bolder text-dark font-size-h5 font-size-h2-lg pb-2 ">
+              PHONE NUMBERS (SINGLE NUMBERS & DDI)
+            </h5>
+          </div>
+          <mat-radio-group class="example-radio-group" 
+            (change)="changePhoneState()" 
+            formControlName="selectedPhoneState"
+            [class.is-invalid]="isControlInvalid('selectedPhoneState')"
+            [class.is-valid]="isControlValid('selectedPhoneState')" 
+          >
+            <mat-radio-button class="main-font-blue" value="single">New Single Number</mat-radio-button>
+            <mat-radio-button class="main-font-blue" value="phone62">New DDI 100 (6+2)</mat-radio-button>
+            <mat-radio-button class="main-font-blue" value="phone53">New DDI 1000 (5+3)</mat-radio-button>
+          </mat-radio-group>  
+          <div class="valid-feedback" *ngIf="isControlValid('selectedPhoneState')">Current phone number was entered correct</div>
+          <div class="invalid-feedback" *ngIf="controlHasError('required', 'selectedPhoneState')">Phone Number is required</div>
+        
+        </div> 
+        <div>
+          <h5 class="main-font-blue font-weight-bolder text-dark font-size-h5 font-size-h5-lg pb-2 text-center pt-5">
+            All signup accounts are created on a prepaid basis, you can apply for credit through the button below
+          </h5>
+        </div>
+      </div>
+    </div>
+    <!--end::Body-->
+    <!--begin::Footer-->
+    <div class="d-flex justify-content-center">
+      <div>
+        <button
+          (click)="requestCredit()"
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+        >
+          REQUEST CREDIT  
+        </button>
+      </div>
+      <div>
+        <button
+          (click)="next()"   
+          class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+        >
+          NEXT
+        </button>
+        &nbsp;
+      </div>
+    </div>
+    <!--end::Footer-->
+  </form>
+  <!--end::Form-->
+</div>

@@ -1,0 +1,36 @@
+<div *ngIf="productsFlag" class="container card card-custom gutter-b">
+  <div class="card-header">
+    <div class="card-title">
+      <h3 (click)="goback()" class="main-font-blue font-weight-bolder text-dark font-size-h4 font-size-h1-lg cursor-pointer">PRODUCTS</h3>   
+    </div>
+    <!-- <div class="card-toolbar">
+      <a
+        type="button"
+        class="btn btn-primary"
+        routerLink="/ecommerce/product/add"
+        >New Product</a   
+      >
+    </div> -->
+  </div>
+  <div class="card-body">
+    <!-- begin: Grouping -->
+    
+    <!-- end: Grouping -->
+    <!-- begin:Table -->
+    <div class="">
+      <div class="row">
+        <div *ngFor="let product of products" class="col-md-6 col-xxl-3 py-4 card-height">
+          <div class="card card-custom p-5 px-md-0 position-relative h-100">
+            <div class="d-flex justify-content-center card-img-height">
+              <img [src]="product?.image_url" class="w-100"/>
+            </div> 
+            <label class="checkbox checkbox-single position-absolute" style="right: 10px; top: 10px"><input type="checkbox" (click)="onSelectProduct(product)"
+              [checked]="product.status == 1" /><span></span></label>
+            <div class="text-center font-size-h3 font-size-h1-lg font-weight-bold card-txt-height">{{ product?.name }}</div>
+            <div class="text-center font-size-h4 font-size-h3-lg">€{{ product?.stock }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,62 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title main-font-blue">PLEASE CHOOSE YOUR HARDWARE:</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss()"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="container" #container>
+      <div class="left" *ngIf="totalPages > 1 && currentPage != 1" (click)="currentPage != 1 && changePage(-1)">
+        <img  src="./assets/media/icon/arrow-left.png"/>
+      </div>
+      <div class="cards" [ngClass]="{'w-100': totalPages === 1}">
+        <div class="overflow" [ngStyle]="{'width': overflowWidth, 'left': pagePosition}">
+          <div class="card p-5" *ngFor="let product of arr; let index = index" [ngStyle]="{'width': cardWidth}" [ngClass]="{'selectBorder': product.id === selectedId}" (click)="onSelectProduct(product)">
+            <div class="d-flex justify-content-center card-img-height">
+              <img [src]="product?.image_url" class="w-100"/>
+            </div>  
+            <div class="text-center font-size-h3 font-size-h1-lg font-weight-bold  card-txt-height">{{ product?.name }}</div>
+            <div class="text-center font-size-h4 font-size-h3-lg">€{{ product?.stock }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="right" *ngIf="totalPages > 1  && currentPage != totalPages" (click)="currentPage != totalPages && changePage(+1)"
+        [ngClass]="{'disabled':currentPage === totalPages}">
+        <img src="./assets/media/icon/arrow-right.png"/></div>
+    </div>
+  </div>
+  <div class="modal-footer d-flex justify-content-center">
+    <div>
+      <button
+        (click)="modal.dismiss()"
+        class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+      >
+        BACK
+      </button>
+      &nbsp;
+    </div>
+    <div>
+      <button
+        class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+      >
+        SKIP
+      </button>
+      &nbsp;
+    </div>
+    <div>
+      <button
+        (click)="next()"
+        class="btn btn-primary btn-lg font-weight-bolder font-size-h6 px-8 py-4 m-5 w-180"
+      >
+        ADD TO CART
+      </button>
+      &nbsp;
+    </div>
+  </div>
+</div>
